@@ -33,9 +33,6 @@ jobs:
       - name: Add Go bin to PATH
         run: echo "${HOME}/go/bin" >> $GITHUB_PATH
 
-      - name: Install NSIS
-        run: sudo apt-get install -y nsis
-
       - name: Install frontend dependencies
         if: ${{ hashFiles('frontend/package.json') != '' }}
         run: |
@@ -47,18 +44,8 @@ jobs:
           export PATH="${HOME}/go/bin:${PATH}"
           GOOS=windows GOARCH=amd64 wails build
 
-      - name: Build NSIS installer
-        run: |
-          makensis /DARG_WAILS_AMD64_BINARY=build/bin/hammerdin.exe build/windows/installer/project.nsi
-
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v4
         with:
           name: wails-windows-build
           path: build/bin/*.exe
-
-      - name: Upload NSIS installer
-        uses: actions/upload-artifact@v4
-        with:
-          name: nsis-installer
-          path: build/windows/installer/*.exe
