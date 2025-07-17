@@ -49,7 +49,7 @@ jobs:
 
       - name: Build NSIS installer
         run: |
-          makensis build/windows/installer/project.nsi
+          makensis /DARG_WAILS_AMD64_BINARY=build/bin/hammerdin.exe build/windows/installer/project.nsi
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v4
