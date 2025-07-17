@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import React from "react"
-import blessedHammer from '../assets/blessed_hammer.png';
+import blessedHammerImg from './assets/blessed_hammer.png';
 
 const blessedHammerBaseDamage = [
 	{ min: 12, max: 16 },
@@ -178,7 +178,7 @@ function App() {
 						</div>
 					</div>
 					<div className="flex flex-col justify-center items-center bg-gray-800 p-8 rounded-lg">
-						<img src="/assets/blessed_hammer.png" alt="Blessed Hammer Icon" className="w-24 h-24 mb-4 rounded shadow-lg border border-gray-700" />
+						<img src={blessedHammerImg} alt="Blessed Hammer Icon" className="w-24 h-24 mb-4 rounded shadow-lg border border-gray-700" />
 						<h2 className="text-2xl font-bold mb-4">Calculated Damage</h2>
 						<div className="text-center">
 							<p className="text-lg">
@@ -225,6 +225,8 @@ function App() {
 						</div>
 					</div>
 				</div>
+
+			
 			</div>
 		</div>
 	)
